@@ -9,33 +9,32 @@
 %\newcommand{\apsname}{Final Report}
 
 %######## APS360: Put your Group Number here
-\newcommand{\gpnumber}{7}
+\newcommand{\gpnumber}{18}
 
-\usepackage{hyperref} 
+\usepackage{hyperref}
 \usepackage{url}
 \usepackage{graphicx}
 
 %######## APS360: Put your project Title here
-\title{Formatting Instructions for APS360 Project  \\ 
-based on ICLR Conference Format}
+\title{Project Proposal}
 
 
 %######## APS360: Put your names, student IDs and Emails here
-\author{Author One  \\
-Student\# 1005678901\\
-\texttt{author1@mail.utoronto.ca} \\
+\author{Shiyao Qian  \\
+Student\# 1009309071\\
+\texttt{shiyao.qian@mail.utoronto.ca} \\
 \And
-Author Two  \\
-Student\# 1005678901 \\
-\texttt{author2@mail.utoronto.ca} \\
-\AND
-Author Three  \\
-Student\# 1005678901 \\
-\texttt{author3@mail.utoronto.ca} \\
+Zhengfei Yu  \\
+Student\# 1008982978 \\
+\texttt{barryzhengfei.yu@mail.utoronto.ca} \\
 \And
-Author Four \\
-Student\# 1005678901 \\
-\texttt{author4@mail.utoronto.ca} \\
+Ashley Wang  \\
+Student\# 1009020186 \\
+\texttt{ashleyqi.wang@mail.utoronto.ca} \\
+\And
+Teresa Tu \\
+Student\# 1008903144 \\
+\texttt{teresatu.tu@mail.utoronto.ca} \\
 \AND
 }
 
@@ -50,72 +49,36 @@ Student\# 1005678901 \\
 \newcommand{\fix}{\marginpar{FIX}}
 \newcommand{\new}{\marginpar{NEW}}
 
-\iclrfinalcopy 
-%######## APS360: Document starts here
-\begin{document}
+\iclrfinalcopy
 
+\begin{document}
 
 \maketitle
 
 \begin{abstract}
-This template should be used for all your project related reports in APS360 course. -- Write an abstract for your project here. Please review the \textbf{ First Course Tutorial} for a quick start
+The area the group is interested in is fruit categorization. Fruit, as one of the major categories of food in people’s life, requires a self detection to provide convenience in production, transportation, and purchase. The team would use CNN as the approach to perform recognition of those objects with complex traits and databases. 
+
+The input image of the fruit passes through the convolutional layer, pooling layer, and fully connected layer, finally outputting the class probability. The baseline model for comparison is a Support Vector Machine (SVM), which will be tested on the fruits dataset, potentially using techniques like partial fit to manage memory limitations. The project will utilize the processed Fruits-360 dataset. However, the classification tool could cause problems considering privacy problems and limitations of both the model itself and the training data.
+
+As a team, we have decided thorough efficient communication and meeting plans together with emergency plans to keep every member updated and prepared. Also, detailed assigned tasks are listed for future reference.
+ %\textbf{ First Course Tutorial} for a quick start
 %######## APS360: Do not change the next line. This shows your Main body page count.
 ----Total Pages: \pageref{last_page}
 \end{abstract}
+\section{Introduction}
+Classifying different types of fruit has important applications in the agriculture, retail, and food processing industries. Automation in these areas can increase productivity and reduce human errors, allowing large amounts of product to be processed efficiently. The topic of our project is to develop a fruit classification system using deep learning techniques to automatically identify fruit types based on images. This can have applications in quality control, inventory management, and automated checkout systems.
 
+Convolutional Neural Networks (CNNs) in deep learning are a suitable approach for this project because they can perform pattern recognition in large datasets, learn complex features from the data, such as color gradients, textures, and shapes, and accurately distinguish between similar fruits.
 
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=0.6\textwidth]{Figs/model_diagram.png}
+\end{center}
+\caption{CNN Architecture for Fruit Classification}
+\label{figure1}
+\end{figure}
 
-\section{Project Document Submission for APS360 Course}
-
-
-The format for the submissions is a variant of the ICLR 2022 format.
-Please read carefully the instructions below, and follow them
-faithfully. There is a \textbf{9 page} limit for the main text. References do not have any limitation. This is also ICLR's standard length for a paper submission. 
-If your main text goes to page 10, a $-20\%$ penalty would be applied. If your main text goes to page 11, you will not receive any grade for your submission. 
-
-\subsection{Style}
-
-Papers to be submitted to APS360 must be prepared according to the
-instructions presented here.
-
-Authors are required to use the APS360 \LaTeX{} style files obtainable at the
-APS360 website on Quercus. Tweaking the style is not permitted.
-
-\subsection{Retrieval of style files}
-
-The file \verb+APS360_Project.pdf+ contains these
-instructions and illustrates the various formatting requirements your APS360 paper must satisfy.
-Submissions must be made using \LaTeX{} and the style files
-\verb+iclr2022_conference.sty+ and \verb+iclr2022_conference.bst+ (to be used with \LaTeX{}2e). The file
-\verb+APS360_Project.tex+ may be used as a ``shell'' for writing your paper. All you have to do is replace the author, title, abstract, and text of the paper with
-your own.
-
-The formatting instructions contained in these style files are summarized in
-sections \ref{gen_inst}, \ref{headings}, and \ref{others} below.
-
-\section{General formatting instructions}
-\label{gen_inst}
-
-The text must be confined within a rectangle 5.5~inches (33~picas) wide and
-9~inches (54~picas) long. The left margin is 1.5~inch (9~picas).
-Use 10~point type with a vertical spacing of 11~points. Times New Roman is the
-preferred typeface throughout. Paragraphs are separated by 1/2~line space,
-with no indentation.
-
-Paper title is 17~point, in small caps and left-aligned.
-All pages should start at 1~inch (6~picas) from the top of the page.
-
-Authors' names are
-set in boldface, and each name is placed above its corresponding
-address. The lead author's name is to be listed first, and
-the co-authors' names are set to follow. Authors sharing the
-same address can be on the same line.
-
-Please pay special attention to the instructions in section \ref{others}
-regarding figures, tables, acknowledgments, and references.
-
-
-There will be a strict upper limit of 9 pages for the main text of the initial submission, with unlimited additional pages for citations. 
+Figure~\ref{figure1} shows the overall architecture of the fruit classification system using a CNN, which will be discussed in detail in section~\ref{sec:Architecture}. It begins with an input image of a fruit, then extracts features such as shapes and colors in the convolutional layer. Following this, the dimensionality of the data is reduced while preserving important features in the pooling layer. The processed data is then analyzed for classification by being passed to a fully connected layer. Finally, the system outputs class probabilities, and the fruit is identified based on the highest probability.
 
 \section{Background \& Related Work}
 \label{headings}
@@ -130,11 +93,11 @@ assist with image recognition and plant identification. This
 Google Photos includes a feature that allows users to search for 
 visually similar images across the World Wide Web. The application 
 finds matches based on characteristics such as color, shape, or 
-texture of the image [1]. The Google Research team developed a 
-distributed computing infrastructure to train large-scale neural 
+texture of the image~\citep{nieuwenhuysen2018information}. The 
+Google Research team developed a distributed computing infrastructure to train large-scale neural 
 networks, utilizing 16,000 CPUs in their data centers. This setup 
 enables the identification of a wide variety of images, including
- fruits, plants, animals, and human faces [2].
+ fruits, plants, animals, and human faces\citep{lee2020algorithmic}.
 
 \subsection{PlantNet}
 
@@ -145,12 +108,12 @@ PlantNet is an application that can identify up to 21,920 species
    to contribute by confirming plant species, essentially training 
    the system. However, the information it provides is limited to a
     photo and the Latin name, with no links to external resources 
-    [3].
+    \citep{bilyk2020assessment}.
 
 \subsection{PlantSnap}
 Similar to PlantNet, PlantSnap can identify over 585,000 plant 
 species. However, it too lacks links to additional information 
-sources, offering only an image and the species’ Latin name [3].
+sources, offering only an image and the species’ Latin name \citep{bilyk2020assessment}.
 
 \subsection{Seek by iNaturalist}
 This application leverages the iNaturalist community's large 
@@ -158,296 +121,140 @@ dataset to identify species based on images. It is capable of
 identifying plants at different taxonomic levels, such as species, 
 genus, and class. In a test of five popular plant identification
 apps, Seek correctly identified 85\% of images within the top five 
-suggestions, with 69\% accuracy on the first suggestion [4, 5].
+suggestions, with 69\% accuracy on the first suggestion \citep{inaturalist_taxa}\citep{hart2023assessing}.
 
 \subsection{GitHub Fruit Classifier}
 A program available on GitHub trained a model to classify 40 types 
 of fruits, achieving an accuracy of 92.47\%. The model was 
 developed using TensorFlow, making it closely related to our 
-project in terms of the underlying technology and scope [6].
+project in terms of the underlying technology and scope \citep{aparande_fruit_classification}.
+
 
 \section{Data Processing}
-For our project on plant and fruit identification, we will
- primarily utilize the Fruits-360 dataset, which consists of a 
- vast collection of images featuring various fruits, vegetables, 
- and nuts. This dataset includes 94,110 images scaled to 100x100 
- pixels, providing a consistent size that facilitates efficient 
- processing. The dataset is well-structured, comprising 70,491
-  images for training and 23,619 images for testing, categorized 
-  into 141 distinct classes of fruits and vegetables. [7] \\
+For our project on plant and fruit identification, we will primarily utilize the Fruits-360 dataset, which consists of a vast collection of images featuring various fruits, vegetables, and nuts. This dataset includes 94,110 images scaled to 100x100 pixels, providing a consistent size that facilitates efficient processing. The dataset is well-structured, comprising 70,491 images for training and 23,619 images for testing, categorized into 141 distinct classes of fruits and vegetables.~\citep{moltean_fruits_360}
 
-To enhance the quality of our dataset, we will implement several
- data processing steps, including collection, cleaning, and 
- formatting. Although the Fruits-360 dataset is an established 
- resource, we will conduct additional work to ensure that the data 
- is optimized for our specific model requirements. \\
+To enhance the quality of our dataset, we will implement several data processing steps, including collection, cleaning, and formatting. Although the Fruits-360 dataset is an established resource, we will conduct additional work to ensure that the data is optimized for our specific model requirements.
 
-\subsection{Data Cleaning}
-The first phase involves thorough cleaning to eliminate any 
-discrepancies that could hinder model performance.
-\begin{itemize}
-\item Removing Extra Data: Remove Images related to vegetables and nuts which are not included in our scope.
+Data Cleaning: The first phase involves thorough cleaning to eliminate any discrepancies that could hinder model performance.
+Removing Extra Data: Remove Images related to vegetables and nuts which are not included in our scope.
+Removing Corrupted Images: We will systematically check for corrupted or unreadable files by attempting to load each image and catching any errors that arise. Any image that fails to load will be flagged and removed.
+Removing Duplicates: To prevent duplicates from skewing our training process, we will employ hash functions to identify and eliminate identical images, enhancing the dataset's diversity.
+Checking Labels: Ensuring the accuracy of labels is critical for supervised learning. We will manually verify a sample of labels and automate the process for the entire dataset using scripts. This will help catch and correct any inconsistencies.
 
-\item Removing Corrupted Images: We will systematically check for corrupted or unreadable files by attempting to load each image and catching any errors that arise. Any image that fails to load will be flagged and removed.
+Image Preprocessing (for Fruit Images): After cleaning, we will preprocess the images to prepare them for neural network input.
+Resizing: All images will be resized to a consistent dimension, typically 224x224 pixels or 128x128 pixels. This standardization ensures that the model can effectively process the inputs.
+Data Splitting: We will partition the dataset into training and test sets to evaluate the model's performance accurately.
+Train-Test Split: The dataset will be divided into a training set comprising 80\% of the images and a test set comprising the remaining 20\%. This split allows us to train the model on one portion while reserving another for testing, preventing overfitting.
+Final Formatting: The last step involves ensuring consistent formatting for the dataset.
+Ensuring Consistency: We will maintain uniformity in data types across the dataset, with images represented as floating-point values and labels as integers. This consistency ensures efficient processing by the model.
 
-\item Removing Duplicates: To prevent duplicates from skewing our training process, we will employ hash functions to identify and eliminate identical images, enhancing the dataset's diversity.
 
-\item Checking Labels: Ensuring the accuracy of labels is critical for supervised learning. We will manually verify a sample of labels and automate the process for the entire dataset using scripts. This will help catch and correct any inconsistencies.
+\section{Architecture}
+\label{sec:Architecture}
+For this project, we will employ a CNN as our primary model architecture, leveraging its proven effectiveness in image recognition tasks. CNNs are particularly adept at identifying hierarchical patterns in spatial data, which makes them ideal for classifying images of fruits based on visual features. A visualisation of this structure is shown above in Figure~\ref{figure1}. The CNN architecture for this project will be composed of five main components:
 
-\end{itemize}
+Input Layer: This layer will accept color images of fruits, each with a resolution of 100x100 pixels. The input images will be standardized to ensure consistent sizing and color representation across all training and testing examples.
 
-\subsection{Image Preprocessing (for Fruit Images)}
-After cleaning, we will preprocess the images to 
-prepare them for neural network input.
-\begin{itemize}
-  \item Resizing: All images will be resized to a consistent 
-  dimension, typically 224x224 pixels or 128x128 pixels. 
-  This standardization ensures that the model can effectively 
-  process the inputs.
-\end{itemize}
+Convolutional Layers: Multiple convolutional layers will be used to extract various features from the images. These layers will apply a series of learnable filters to the input, each producing a feature map that emphasizes certain aspects of the image. We will experiment with different combinations of filters to optimize performance.
 
-\subsection{Data Splitting}
-We will partition the dataset into training and test sets to 
-evaluate the model's performance accurately.
+Pooling Layers: Following convolutional layers, pooling layers will reduce the spatial dimensions of the feature maps, thus decreasing the computational complexity and the number of parameters in the network. This consolidation of information helps to prevent overfitting on feature representations and increase robustness against small variations of them. We plan to use max pooling for its effectiveness in capturing the most salient features.
 
-\begin{itemize}
-  \item Train-Test Split: The dataset will be divided into a 
-  training set comprising 80\% of the images and a test set 
-  comprising the remaining 20\%. This split allows us to train 
-  the model on one portion while reserving another for testing, 
-  preventing overfitting.
-\end{itemize}
+Fully Connected Layers: After feature extraction and consolidation, one or more fully connected layers will follow to interpret the feature data and classify input image into a fruit category. Each neuron in these layers will be connected to all activations from the previous layer, thus enabling the network to make decisions based on the global understanding of the image features.
 
-\subsection{Final Formatting}
-The last step involves ensuring consistent formatting for 
-the dataset.
+\section{Baseline Model}
+The baseline model that we will compare our neural networks against is SVM. SVM typically identify images by separating classes with hyperplanes, which is an efficient and relatively easier method. Therefore, it can provide us with an insight of how far a simple machine learning model can go in our task and help us set an expectation on our final model. We plan to implement this model using the sklearn library~\citep{sklearn_api} and test its performance on the processed Fruits-360 dataset. As the dataset contains a total of 94110 samples~\citep{moltean_fruits_360}, certain tricks partial fit may be needed when training the SVM to ensure that the model does not exhaust the memory resources available. 
 
-\begin{itemize}
-  \item Ensuring Consistency: We will maintain uniformity in data 
-  types across the dataset, with images represented as 
-  floating-point values and labels as integers. 
-  This consistency ensures efficient processing by the model.
-\end{itemize}
+\section{Ethical Considerations}
+The possible risks could be privacy risk and threat to the labour market. For privacy risks, the photos the users upload may contain other backgrounds like their kitchen or superstores that may violate others’ privacy. Also, the fully developed fruit detection program may replace workers in the superstores or grocery stores, which may cause labour problems.
 
-\section{Citation}
-\label{others}
+The CNN model is limited in some aspects. It requires a large number of labelled databases, which could be expensive and time-consuming. Also, the CNN model could have varying performance based on image type and may face challenges of overfitting, exploding gradient, and class imbalance~\cite{GeeksforGeeks_2021, deep_cnn_review_2017}.
 
-\subsection{Citations within the text}
+In the case of training data, there are different categories of fruits and we need to cover as much as we can to be able to identify those fruits. There are also subcategories of each fruit, and if we could also include that, the result would be more detailed. Also, the same fruit may grow in different shapes or appearance in different places. We need to also account for that to ensure result accuracy.
 
-Citations within the text should be based on the \texttt{natbib} package
-and include the authors' last names and year (with the ``et~al.'' construct
-for more than two authors). When the authors or the publication are
-included in the sentence, the citation should not be in parenthesis using \verb|\citet{}| (as
-in ``See \citet{Hinton06} for more information.''). Otherwise, the citation
-should be in parenthesis using \verb|\citep{}| (as in ``Deep learning shows promise to make progress
-towards AI~\citep{Bengio+chapter2007}.'').
-
-The corresponding references are to be listed in alphabetical order of
-authors, in the \textsc{References} section. As to the format of the
-references themselves, any style is acceptable as long as it is used
-consistently.
-
-To cite a new paper, first, you need to add that paper's BibTeX information to \verb+APS360_ref.bib+ file and then you can use the \verb|\citep{}| command to cite that in your main document. 
-
-\subsection{Footnotes}
-
-Indicate footnotes with a number\footnote{Sample of the first footnote} in the
-text. Place the footnotes at the bottom of the page on which they appear.
-Precede the footnote with a horizontal rule of 2~inches
-(12~picas).\footnote{Sample of the second footnote}
-
-\subsection{Figures}
-
-All artwork must be neat, clean, and legible. Lines should be dark
-enough for purposes of reproduction; art work should not be
-hand-drawn. The figure number and caption always appear after the
-figure. Place one line space before the figure caption, and one line
-space after the figure. The figure caption is lower case (except for
-first word and proper nouns); figures are numbered consecutively.
-
-Make sure the figure caption does not get separated from the figure.
-Leave sufficient space to avoid splitting the figure and figure caption.
-
-You may use color figures.
-However, it is best for the
-figure captions and the paper body to make sense if the paper is printed
-either in black/white or in color.
-
-\begin{figure}[h]
-\begin{center}
-\includegraphics[width=0.6\textwidth]{Figs/td-deep-learning.jpg}
-\end{center}
-\caption{Sample figure caption. Image: ZDNet}
-\end{figure}
-
-\subsection{Tables}
-
-All tables must be centered, neat, clean and legible. Do not use hand-drawn
-tables. The table number and title always appear before the table. See
-Table~\ref{sample-table}.
-
-Place one line space before the table title, one line space after the table
-title, and one line space after the table. The table title must be lower case
-(except for first word and proper nouns); tables are numbered consecutively.
-
-\begin{table}[t]
-\caption{Sample table title}
+\section{Project Plan}
+We decided to have a regular meeting on Tuesday, 19:00, at the SF library on campus to keep updated with the current progress, discuss problems met, and modify plans on future tasks based on those. Besides these regular meetings, we could also communicate through group chat and each member is expected to reply within 10 hours to ensure efficient communication. A remote meeting on zoom will be added one day before the deadline for final checking on the work to be uploaded. Also, since we are using Google Docs and Google Colab for all the collaborated work, commenting and editing functions embedded could also perform its role in idea sharing and discussion. Using the shared Google Drive, we could follow the assigned tasks list in Table 2 and finish our own parts before the deadline, which allows the next person to start the next progress. We will do version control of coding using google colab’s version history. Overwriting of code can be avoided with detailed discussion and task assignment before coding.  If necessary, we may divide up the code and save one copy of it for each person on google drive before merging the code together.
+\clearpage
+\begin{table}[hp]
+\caption{Current Project Tasks and Deadlines}
 \label{sample-table}
-\begin{center}
-\begin{tabular}{ll}
-\multicolumn{1}{c}{\bf PART}  &\multicolumn{1}{c}{\bf DESCRIPTION}
+\vspace{0.5cm}
+\begin{tabular}{p{0.75in}p{1.25in}p{2.25in}p{1.25in}}
+\multicolumn{1}{c}{\bf NAME}  &\multicolumn{1}{c}{\bf TASK} &\multicolumn{1}{c}{\bf DESCRIPTION} &\multicolumn{1}{c}{\bf INTERNAL DEADLINE}
 \\ \hline \\
-Dendrite         &Input terminal \\
-Axon             &Output terminal \\
-Soma             &Cell body (contains cell nucleus) \\
+Ashley Wang &Introduction  &describe the project topic and objective &Oct 2, 2024 \\
+Ashley Wang &Illustration  &illustrates the overall model and summarizes the model core  &Oct 2, 2024\\
+Zhengfei Yu   &Background \& related work   &explored various image recognition and plant identification technologies, highlighting their features, performance, and relevance to the project    &Oct 2, 2024\\
+Zhengfei Yu   &Data processing  &Describe the process of utilizing the Fruits-360 dataset, detailing the data cleaning steps, followed by image preprocessing tasks and ensuring consistent data formatting to optimize it for model training. &Oct 2, 2024\\
+Shiyao Qian  &Architecture  &Describe in detail the actual neural network structure that is going to be used as the model &Oct 2, 2024\\
+Shiyao Qian  &Baseline model  &Choose the model as baseline for comparison and state the plan its implementation  &Oct 2, 2024\\
+Teresa Tu  &Ethical consideration  &explore and research the possible ethical risks of the project &Oct 2, 2024\\
+Teresa Tu  &Risk register  &Discuss, evaluate and plan for the possible risks that could affect the completion of the project  &Oct 2, 2024\\
+\end{tabular}
+\end{table}
+
+\begin{table}[hp]
+\caption{Future Project Tasks and Deadlines}
+\label{project-tasks}
+\begin{center}
+\begin{tabular}{p{1.25in} p{2.5in} p{1.25in}}
+\multicolumn{1}{c}{\bf NAME} & \multicolumn{1}{c}{\bf FUTURE TASKS FOR CODING} & \multicolumn{1}{c}{\bf INTERNAL DEADLINE} \\ \hline \\
+Zhengfei Yu & 
+\begin{tabular}[c]{@{}l@{}} 
+Collecting Data: \\ 
+- Finding a reliable dataset where each image\\is already associated with a label\\corresponding to the fruit type. \\ 
+- Taking pictures of real fruit for real-world\\scenarios. \\ 
+- Organizing the pictures in the proper fruit\\class folder. 
+Each subfolder contains images\\of the respective fruit. \\ \\
+Processing Data: \\ 
+- Resizing images to a fixed size (e.g., 100x\\100 pixels) for consistency. \\ 
+- Scaling pixel values from the default\\range [0, 255] to [0, 1]. \\ 
+- Splitting the dataset into a training set (60\%),\\validation set (20\%), and testing set (20\%).
+\end{tabular} & Oct 13, 2024 \\ \hline \\
+Shiyao Qian & 
+\begin{tabular}[c]{@{}l@{}} 
+Building the CNN Model: \\ 
+- Input Layer: Define the input shape\\(e.g., 100x100x3 for RGB images). \\ 
+- Convolutional Layers: Add layers to extract\\ features. \\ 
+- Pooling Layers: Use max pooling to reduce\\dimensionality. \\ 
+- Dropout: Add layers to prevent overfitting. \\ 
+- Fully Connected Layers: Add dense layers to\\classify fruit. \\ 
+- Output Layer: Final dense layer with softmax\\activation for multi-class classification. \\ \\
+Compiling the Model: \\ 
+- Choose an optimizer (e.g., Adam). \\ 
+- Define the loss function (e.g., categorical\\cross-entropy). \\ 
+- Specify performance metrics (e.g., accuracy).
+\end{tabular} & Oct 20, 2024 \\ \hline \\
+Ashley Wang & 
+\begin{tabular}[c]{@{}l@{}} 
+Training the Model: \\ 
+- Use the training data to fit the model. \\ 
+- Set parameters such as batch size. \\ 
+- Validate accuracy and error. \\ \\
+Evaluating the Model: \\ 
+- Evaluate the model on the validation set. \\ 
+- Understand the misclassified fruit type.
+\end{tabular} & Oct 27, 2024 \\ \hline \\
+Teresa Tu & 
+\begin{tabular}[c]{@{}l@{}} 
+Testing the Model: \\ 
+- Perform the model using separate test data. \\ 
+- Calculate the final accuracy metrics. \\ \\
+Model Tuning: \\ 
+- Change parameters like learning rate, number\\of layers, etc.
+\end{tabular} & Nov 03, 2024 \\ 
 \end{tabular}
 \end{center}
 \end{table}
 
-\section{Default Notation}
 
-In an attempt to encourage standardized notation, we have included the
-notation file from the textbook, \textit{Deep Learning}
-\cite{goodfellow2016deep} available at
-\url{https://github.com/goodfeli/dlbook_notation/}.  Use of this style
-is not required and can be disabled by commenting out
-\texttt{math\_commands.tex}.
-
-
-\centerline{\bf Numbers and Arrays}
-\bgroup
-\def\arraystretch{1.5}
-\begin{tabular}{p{1in}p{3.25in}}
-$\displaystyle a$ & A scalar (integer or real)\\
-$\displaystyle \va$ & A vector\\
-$\displaystyle \mA$ & A matrix\\
-$\displaystyle \tA$ & A tensor\\
-$\displaystyle \mI_n$ & Identity matrix with $n$ rows and $n$ columns\\
-$\displaystyle \mI$ & Identity matrix with dimensionality implied by context\\
-$\displaystyle \ve^{(i)}$ & Standard basis vector $[0,\dots,0,1,0,\dots,0]$ with a 1 at position $i$\\
-$\displaystyle \text{diag}(\va)$ & A square, diagonal matrix with diagonal entries given by $\va$\\
-$\displaystyle \ra$ & A scalar random variable\\
-$\displaystyle \rva$ & A vector-valued random variable\\
-$\displaystyle \rmA$ & A matrix-valued random variable\\
-\end{tabular}
-\egroup
-\vspace{0.25cm}
-\centerline{\bf Sets and Graphs}
-\bgroup
-\def\arraystretch{1.5}
-
-\begin{tabular}{p{1.25in}p{3.25in}}
-$\displaystyle \sA$ & A set\\
-$\displaystyle \R$ & The set of real numbers \\
-$\displaystyle \{0, 1\}$ & The set containing 0 and 1 \\
-$\displaystyle \{0, 1, \dots, n \}$ & The set of all integers between $0$ and $n$\\
-$\displaystyle [a, b]$ & The real interval including $a$ and $b$\\
-$\displaystyle (a, b]$ & The real interval excluding $a$ but including $b$\\
-$\displaystyle \sA \backslash \sB$ & Set subtraction, i.e., the set containing the elements of $\sA$ that are not in $\sB$\\
-$\displaystyle \gG$ & A graph\\
-$\displaystyle \parents_\gG(\ervx_i)$ & The parents of $\ervx_i$ in $\gG$
-\end{tabular}
-\vspace{0.25cm}
-
-
-\centerline{\bf Indexing}
-\bgroup
-\def\arraystretch{1.5}
-
-\begin{tabular}{p{1.25in}p{3.25in}}
-$\displaystyle \eva_i$ & Element $i$ of vector $\va$, with indexing starting at 1 \\
-$\displaystyle \eva_{-i}$ & All elements of vector $\va$ except for element $i$ \\
-$\displaystyle \emA_{i,j}$ & Element $i, j$ of matrix $\mA$ \\
-$\displaystyle \mA_{i, :}$ & Row $i$ of matrix $\mA$ \\
-$\displaystyle \mA_{:, i}$ & Column $i$ of matrix $\mA$ \\
-$\displaystyle \etA_{i, j, k}$ & Element $(i, j, k)$ of a 3-D tensor $\tA$\\
-$\displaystyle \tA_{:, :, i}$ & 2-D slice of a 3-D tensor\\
-$\displaystyle \erva_i$ & Element $i$ of the random vector $\rva$ \\
-\end{tabular}
-\egroup
-\vspace{0.25cm}
-
-
-\centerline{\bf Calculus}
-\bgroup
-\def\arraystretch{1.5}
-\begin{tabular}{p{1.25in}p{3.25in}}
-% NOTE: the [2ex] on the next line adds extra height to that row of the table.
-% Without that command, the fraction on the first line is too tall and collides
-% with the fraction on the second line.
-$\displaystyle\frac{d y} {d x}$ & Derivative of $y$ with respect to $x$\\ [2ex]
-$\displaystyle \frac{\partial y} {\partial x} $ & Partial derivative of $y$ with respect to $x$ \\
-$\displaystyle \nabla_\vx y $ & Gradient of $y$ with respect to $\vx$ \\
-$\displaystyle \nabla_\mX y $ & Matrix derivatives of $y$ with respect to $\mX$ \\
-$\displaystyle \nabla_\tX y $ & Tensor containing derivatives of $y$ with respect to $\tX$ \\
-$\displaystyle \frac{\partial f}{\partial \vx} $ & Jacobian matrix $\mJ \in \R^{m\times n}$ of $f: \R^n \rightarrow \R^m$\\
-$\displaystyle \nabla_\vx^2 f(\vx)\text{ or }\mH( f)(\vx)$ & The Hessian matrix of $f$ at input point $\vx$\\
-$\displaystyle \int f(\vx) d\vx $ & Definite integral over the entire domain of $\vx$ \\
-$\displaystyle \int_\sS f(\vx) d\vx$ & Definite integral with respect to $\vx$ over the set $\sS$ \\
-\end{tabular}
-\egroup
-\vspace{0.25cm}
-
-\centerline{\bf Probability and Information Theory}
-\bgroup
-\def\arraystretch{1.5}
-\begin{tabular}{p{1.25in}p{3.25in}}
-$\displaystyle P(\ra)$ & A probability distribution over a discrete variable\\
-$\displaystyle p(\ra)$ & A probability distribution over a continuous variable, or over
-a variable whose type has not been specified\\
-$\displaystyle \ra \sim P$ & Random variable $\ra$ has distribution $P$\\% so thing on left of \sim should always be a random variable, with name beginning with \r
-$\displaystyle  \E_{\rx\sim P} [ f(x) ]\text{ or } \E f(x)$ & Expectation of $f(x)$ with respect to $P(\rx)$ \\
-$\displaystyle \Var(f(x)) $ &  Variance of $f(x)$ under $P(\rx)$ \\
-$\displaystyle \Cov(f(x),g(x)) $ & Covariance of $f(x)$ and $g(x)$ under $P(\rx)$\\
-$\displaystyle H(\rx) $ & Shannon entropy of the random variable $\rx$\\
-$\displaystyle \KL ( P \Vert Q ) $ & Kullback-Leibler divergence of P and Q \\
-$\displaystyle \mathcal{N} ( \vx ; \vmu , \mSigma)$ & Gaussian distribution %
-over $\vx$ with mean $\vmu$ and covariance $\mSigma$ \\
-\end{tabular}
-\egroup
-\vspace{0.25cm}
-
-\centerline{\bf Functions}
-\bgroup
-\def\arraystretch{1.5}
-\begin{tabular}{p{1.25in}p{3.25in}}
-$\displaystyle f: \sA \rightarrow \sB$ & The function $f$ with domain $\sA$ and range $\sB$\\
-$\displaystyle f \circ g $ & Composition of the functions $f$ and $g$ \\
-  $\displaystyle f(\vx ; \vtheta) $ & A function of $\vx$ parametrized by $\vtheta$.
-  (Sometimes we write $f(\vx)$ and omit the argument $\vtheta$ to lighten notation) \\
-$\displaystyle \log x$ & Natural logarithm of $x$ \\
-$\displaystyle \sigma(x)$ & Logistic sigmoid, $\displaystyle \frac{1} {1 + \exp(-x)}$ \\
-$\displaystyle \zeta(x)$ & Softplus, $\log(1 + \exp(x))$ \\
-$\displaystyle || \vx ||_p $ & $\normlp$ norm of $\vx$ \\
-$\displaystyle || \vx || $ & $\normltwo$ norm of $\vx$ \\
-$\displaystyle x^+$ & Positive part of $x$, i.e., $\max(0,x)$\\
-$\displaystyle \1_\mathrm{condition}$ & is 1 if the condition is true, 0 otherwise\\
-\end{tabular}
-\egroup
-\vspace{0.25cm}
-
-
-
-\section{Final instructions}
-Do not change any aspects of the formatting parameters in the style files.
-In particular, do not modify the width or length of the rectangle the text
-should fit into, and do not change font sizes (except perhaps in the
-\textsc{References} section; see below). Please note that pages should be
-numbered.
-
-
-\subsubsection*{Author Contributions}
-If you'd like to, you may include  a section for author contributions as is done
-in many journals. This is optional and at the discretion of the authors.
-
-\subsubsection*{Acknowledgments}
-Use unnumbered third level headings for the acknowledgments. All
-acknowledgments, including those to funding agencies, go at the end of the paper.
-
+\raggedright
+\sloppy
+\clearpage
 \label{last_page}
 
-\bibliography{APS360_ref}
+\bibliography{reference.bib}
 \bibliographystyle{iclr2022_conference}
 
-\end{document}
 
+
+\end{document}
